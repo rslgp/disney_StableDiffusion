@@ -8,10 +8,11 @@ import os
 # Load model from Hugging Face
 model_name = "liamhvn/disney-pixar-cartoon-b"
 pipe = StableDiffusionPipeline.from_pretrained(model_name, torch_dtype=torch.float16)
+pipe = pipe.to("cuda") # using gpu
 
 # PROMPT VARIABLES
 prompt = "Generate this person in a Pixar cartoon style; keep hair color in brown spectrum; male gender"
-image_path="/image.jpg"
+image_path="./image.jpeg"
 input_image = Image.open(image_path)
 
 #ultimate combination
