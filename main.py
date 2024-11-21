@@ -9,6 +9,8 @@ import os
 model_name = "liamhvn/disney-pixar-cartoon-b"
 pipe = StableDiffusionPipeline.from_pretrained(model_name, torch_dtype=torch.float16)
 # pipe = pipe.to("cuda") # using gpu nvidia
+# pipe.enable_attention_slicing()
+# pipe.enable_sequential_cpu_offload()
 
 # PROMPT VARIABLES
 prompt = "Generate this person in a Pixar cartoon style; keep hair color in brown spectrum; male gender"
